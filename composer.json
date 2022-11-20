@@ -1,6 +1,6 @@
 {
-    "type": "project",
-    "license": "proprietary",
+    "type": "promotions-test-capitol",
+    "license": "David Lares Liszka",
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
