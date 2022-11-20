@@ -1,0 +1,3 @@
+index:
+    path: /api/v1/products
+    controller: App\InfraLayer\Controllers\ProductListController::invoke
