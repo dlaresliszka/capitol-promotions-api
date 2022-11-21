@@ -11,6 +11,8 @@ services:
       - 80:80
     volumes:
       - ./public:/appdata/www/public
+    depends_on:
+      - promotions-api
     networks:
       - promotions-network
 
@@ -24,7 +26,6 @@ services:
     volumes:
       - ./:/appdata/www
     depends_on:
-      - nginx
       - promotions_database
     networks:
       - promotions-network
