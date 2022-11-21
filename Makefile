@@ -15,7 +15,10 @@ projectInit:
 	MAKE_ID=${USER_ID} docker-compose up -d
 	MAKE_ID=${USER_ID} docker exec --user ${USER_ID} -it ${API_CONTEINER_NAME} composer install --no-scripts --no-interaction --optimize-autoloader
 	MAKE_ID=${USER_ID} docker exec -it --user ${USER_ID} ${API_CONTEINER_NAME} php bin/console asset:install
-	sleep 1
+	sleep 10
 	MAKE_ID=${USER_ID} docker exec -it --user ${USER_ID} ${API_CONTEINER_NAME} php bin/console doctrine:migrations:migrate -n
 	sleep 5
+	MAKE_ID=${USER_ID} docker exec -it --user ${USER_ID} ${API_CONTEINER_NAME} php bin/phpunit
+
+test-run:
 	MAKE_ID=${USER_ID} docker exec -it --user ${USER_ID} ${API_CONTEINER_NAME} php bin/phpunit
